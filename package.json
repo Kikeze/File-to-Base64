@@ -1,0 +1,57 @@
+{
+  "name": "kikeze-file-to-base64",
+  "displayName": "FILE to BASE64",
+  "description": "Import FILE to Clipboard using BASE64 Encoder",
+  "publisher": "KikezeVSCode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kikeze/File-to-Base64.git"
+  },
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "kikeze-file-to-base64.loadFile",
+        "title": "FILE to BASE64",
+        "category": "Kikeze"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "!explorerResourceIsFolder",
+          "command": "kikeze-file-to-base64.loadFile",
+          "group": "Kikeze"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.81.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}
